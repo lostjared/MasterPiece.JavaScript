@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MasterPiece JavaScript</title>
+<style type="text/css">
+
+div {
+	 margin: 0px auto;
+	 text-align: center;
+}
+
+
+#inner_container {
+	display: none;
+}
+
+
+#start_container {
+	display: inline;	
+}
+
+.ctext {
+	font: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: bold;
+	size: 16px;
+}
+
+.cclass { }
+
+</style>
+
+<script src="mp.js">
+</script>
+
+</head>
+
+<body>
+<div class="container">
+<canvas id="can1" class="cclass" width="640" height="480">Unsupported.</canvas><br />
+<div id="start_container">
+<button onclick="startGame()">Start Game</button><br /><br />
+</div>
+<div id="inner_container"><button onclick="moveLeft()">Left</button> 
+<button onclick="moveRight()">Right</button> 
+<button onclick="moveDown()">Down</button> 
+<button onclick="shiftColors()">Shift</button>
+</div>
+</div>
+</body>
+</html>
