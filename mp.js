@@ -186,6 +186,11 @@ function mouseMoveB(e) {
 
 function mouseDown(e) {
     
+	if(current_screen == 0) {
+		startGame();
+		return;
+	}
+
     if(e.type === "touchstart")  {
         downX = e.touches[0].pageX;
         downY = e.touches[0].pageY;
