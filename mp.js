@@ -398,8 +398,6 @@ function Grid() {
 			current_screen = 2;	
 			clearInterval(intClear);
 			clearInterval(programUpdateVar);
-			document.getElementById("inner_container").style.display= "none";
-			document.getElementById("start_container").style.display= "inline";
 		}
 		
 		for(var q = 0; q < 3; ++q) {
