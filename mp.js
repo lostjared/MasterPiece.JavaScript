@@ -99,11 +99,11 @@ function mouseMove(e) {
         
         if(xpos > downX+50) {
             downX = xpos;
-            grid.keyRight();
+            moveRight();
             is_moved = true;
         } else if (xpos < downX-50) {
             downX = xpos;
-            grid.keyLeft();
+            moveLeft();
             is_moved = true;
         }
         
