@@ -37,58 +37,6 @@ var programUpdateVar = 0;
 
 var downX = 0, downY = 0,upX = 0, upY = 0;
 
-function mouseMove(e) {
-	var sourceElement = e.target || e.srcElement;	
-	if(current_screen ==1  && sourceElement.id=="can1") {
-		e.preventDefault();
-	}	
-	upX = e.touches[0].pageX;
-	upY = e.touches[0].pageY;
-}
-
-function mouseDown(e) {
-	
-	var ua = navigator.userAgent.toLowerCase();
-	var isandroid = ua.indexOf("android") > -1; 
-	if(!isandroid) {
-		downX = e.pageX;
-		downY = e.pageY;
-	} else { 
-		var androidversion = parseFloat(ua.slice(ua.indexOf("android")+8)); 
-  		if (androidversion < 4.0)
-  		{
-			downX = downY = 0;
-     	}
-	 } 
-}
-
-function mouseUp(e) {
-	
-	if(downX == 0 && downY == 0) return;
-	
-	if(e.type == "touchend") {
-		//upX = e.changedTouches[0].pageX;
-		//upY = e.changedTouches[0].pageY;	
-	} else {
-		upX = e.pageX;
-		upY = e.pageY;
-	}
-	var deltaX = downX - upX;
-	var deltaY = downY - upY;
-	if(Math.abs(deltaX) > 100) {
-		if(deltaX < 0) { 
-			moveRight();
-		}
-		if(deltaX > 0) { 
-			moveLeft(); 
-		}	
-	} else if(Math.abs(deltaY) > 100) {
-		if(deltaY > 0) { shiftColors(); }
-		if(deltaY < 0) { moveDown(); }
-	}
-}
-
-
 function updateProgram() {
 	moveDown();
 }
@@ -96,8 +44,6 @@ function updateProgram() {
 
 function startGame() {
 	grid.clear();
-	document.getElementById("inner_container").style.display= "inline";
-	document.getElementById("start_container").style.display= "none";
 	current_screen = 1;
 	intClear = setInterval(checkClear, 2000);
 	programUpdateVar = setInterval(updateProgram, 1700);
